@@ -1,0 +1,12 @@
+
+body{
+      background-color: rgba(221, 221, 221, 0.368);
+}
+
+.header_ul_li li a {
+      font-size: 20px;
+}
+.border_bottom{
+      border-bottom: 1px solid gray;
+}
+
