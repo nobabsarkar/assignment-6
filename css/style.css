@@ -10,3 +10,12 @@ body{
       border-bottom: 1px solid gray;
 }
 
+.set_input {
+      padding: 6px;
+      outline: none;
+      border: none;
+}
+
+
+
+
