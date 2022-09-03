@@ -57,7 +57,7 @@ const displayBodyCode = (data) => {
                                                       <div>
                                                       <h5><i class="fa-solid fa-eye"></i> ${code.total_view}</h5>
                                                 </div>
-                                                      <button class="btn btn-warning"> <i class="fa-solid fa-arrow-right"></i> </button>
+                                                      <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"> <i class="fa-solid fa-arrow-right"></i> </button>
                                                 </div>
                                     </div>
                               </div>
