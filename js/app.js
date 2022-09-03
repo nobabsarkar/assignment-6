@@ -28,7 +28,6 @@ function cardCode() {
 
 
 const displayBodyCode = (data) => {
-      console.log(data)
       const codeBody = document.getElementById('card_container')
       data.forEach(code => {
             const codeDiv = document.createElement("div")
@@ -43,7 +42,7 @@ const displayBodyCode = (data) => {
                                           <div class="col-md-7">
                                                 <div class="card-body">
                                                       <h5 class="card-title mt-5">${code.title}</h5>
-                                                      <p class="card-text mt-4">${code.details.slice(0,200)}</p>
+                                                      <p class="card-text mt-4">${code.details.slice(0,200)}...</p>
                                                             <div class="d-flex align-items-center justify-content-between ">
                                                                   <div class="body_section d-flex align-items-center">
                                                                         <div>
@@ -57,7 +56,7 @@ const displayBodyCode = (data) => {
                                                       <div>
                                                       <h5><i class="fa-solid fa-eye"></i> ${code.total_view}</h5>
                                                 </div>
-                                                      <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"> <i class="fa-solid fa-arrow-right"></i> </button>
+                                                      <button onclick="showModal('${code.title}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"> <i class="fa-solid fa-arrow-right"></i> </button>
                                                 </div>
                                     </div>
                               </div>
@@ -65,12 +64,20 @@ const displayBodyCode = (data) => {
                   </div>
             `
             codeBody.appendChild(codeDiv)
+
+            
+
       })
 }
 
 cardCode()
 
+const showModal = (showingModal) => {
+      console.log(showingModal)
+      const modalHeader = document.getElementById('modal_header')
+      modalHeader.innerHTML = `${showingModal}`;
 
+}
 
 
 
