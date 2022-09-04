@@ -16,6 +16,7 @@ const displayCode = (data) => {
       })    
 }
 
+
 const clickHere = (data) => {
       console.log(data)
       const totalResult = document.getElementById("result");
@@ -78,10 +79,13 @@ const displayBodyCode = (data) => {
 
 cardCode()
 
-const showModal = (showingModal) => {
+const showModal = (showingModal,modal) => {
       const modalHeader = document.getElementById('modal_header')
       modalHeader.innerHTML = `${showingModal}`;
+
 }
+
+
 
 
 
