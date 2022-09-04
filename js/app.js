@@ -10,7 +10,7 @@ const displayCode = (data) => {
             const addList = document.getElementById("add_list");
             const li = document.createElement('li');
             li.innerHTML = `
-                   <li  onclick="cardCode()" onclick = "clickHere(${content.category_id})" class="nav-link ms-4" style="cursor:pointer"> ${content.category_name}, ${content.category_id} </li>
+                   <li onclick = "clickHere(${content.category_id})" class="nav-link ms-4" style="cursor:pointer"> ${content.category_name}, ${content.category_id} </li>
             `;
             addList.appendChild(li)
       })    
