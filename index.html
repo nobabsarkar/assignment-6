@@ -65,7 +65,7 @@
                                     </nav>
                               </div>
                               <div class="row">
-                                    <input id="result" type="text" class="set_input" placeholder="Result Here">
+                                    <input id="result" type="text" class="set_input" >
                               </div>
                         </div>
                   </div>
@@ -85,6 +85,7 @@
                               </div>
                         </div>
                   </section>
+                  <h1 id="no_information" class="d-none text-center text-warning">No Information Here</h1>
             </main>
             <!-- main section -->
 
@@ -101,12 +102,22 @@
                                     ...
                               </div>
                               <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary"
+                                          data-bs-dismiss="modal">Close</button>
                               </div>
                         </div>
                   </div>
             </div>
             <!-- modal -->
+
+            <!-- spinner  -->
+            <div id="spinner" class="d-flex justify-content-center d-none">
+                  <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                  </div>
+            </div>
+            <!-- spinner  -->
+
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
                   integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
                   crossorigin="anonymous"></script>

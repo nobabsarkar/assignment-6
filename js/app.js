@@ -5,38 +5,56 @@ function addCodeLink() {
             .then(data => displayCode(data.data.news_category))
 
 }
+
+
+
 const displayCode = (data) => {
       data.forEach(content => {
             const addList = document.getElementById("add_list");
             const li = document.createElement('li');
             li.innerHTML = `
-                   <li onclick = "clickHere(${content.category_id})" class="nav-link ms-4" style="cursor:pointer"> ${content.category_name}, ${content.category_id} </li>
+                   <li onclick="cardCode('${content.category_id}')" class="nav-link ms-4" style="cursor:pointer"> ${content.category_name}</li>
             `;
             addList.appendChild(li)
-      })    
+      })
+ 
+}
+
+const spinner = (mySpinner) => {
+      const spinner = document.getElementById('spinner')
+      if (mySpinner) {
+            spinner.classList.remove('d-none')
+      } else {
+            spinner.classList.add('d-none')
+      }
 }
 
 
-const clickHere = (data) => {
-      console.log(data)
-      const totalResult = document.getElementById("result");
-      totalResult.value = data + ` News Here`
 
-}
+
 
 addCodeLink()
 
-function cardCode() {
-      fetch('https://openapi.programming-hero.com/api/news/category/01')
+function cardCode(id) {
+      spinner(true)
+      fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
             .then(res => res.json())
             .then(data => displayBodyCode(data.data))
       
 }
 
 const displayBodyCode = (data) => {
-      console.log(data)
+      const noInformation = document.getElementById('no_information')
+      if (data.length === 0) {
+            noInformation.classList.remove('d-none')
+      } else {
+            noInformation.classList.add('d-none')
+      }
       const codeBody = document.getElementById('card_container')
+      document.getElementById('result').value = `${data.length} Result Here`
+      codeBody.innerHTML = ''
       data.forEach(code => {
+            console.log(code)
             const codeDiv = document.createElement("div")
             codeDiv.innerHTML = `
                         <div class="card mb-3 p-2">
@@ -63,7 +81,7 @@ const displayBodyCode = (data) => {
                                                       <div>
                                                       <h5><i class="fa-solid fa-eye"></i> ${code.total_view}</h5>
                                                 </div>
-                                                      <button onclick="showModal('${code.title}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"> <i class="fa-solid fa-arrow-right"></i> </button>
+                                                      <button onclick="showModal('${code.title}','${code.thumbnail_url}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"> <i class="fa-solid fa-arrow-right"></i> </button>
                                                 </div>
                                     </div>
                               </div>
@@ -71,21 +89,16 @@ const displayBodyCode = (data) => {
                   </div>
             `
             codeBody.appendChild(codeDiv)
-
-            
-
       })
+spinner(false)
 }
 
 cardCode()
 
-const showModal = (showingModal,modal) => {
+const showModal = (showingModal,hello) => {
       const modalHeader = document.getElementById('modal_header')
       modalHeader.innerHTML = `${showingModal}`;
-
 }
-
-
 
 
 
